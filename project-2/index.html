@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Week 5 Project</title>
+  <script>
+    var unit_type = "temperature";
+    var unit = 70;
 
+    function convertsUnit(type, value) {
+      let convertedResult = "";
+
+      switch(type) {
+        case "temperature":
+          var celsius = Math.round((value - 32) * 5 / 9);
+          convertedResult = value + " degrees Fahrenheit is " + celsius + " degrees Celsius.";
+          break;
+        case "weight":
+          var kg = Math.round(value * 0.453592);
+          convertedResult = value + " pounds is " + kg + " kilograms.";
+          break;
+        case "length":
+          var meters = Math.round(value * 0.3048);
+          convertedResult = value + " feet is " + meters + " meters.";
+          break;
+        case "area":
+          var sqm = Math.round(value * 0.092903);
+          convertedResult = value + " square feet is " + sqm + " square meters.";
+          break;
+        case "volume":
+          var liters = Math.round(value * 3.78541);
+          convertedResult = value + " gallons is " + liters + " liters.";
+          break;
+        default:
+          convertedResult = "Not one of the 5 units allowed!";
+      }
+
+      return convertedResult;
+    }
+  </script>
+</head>
+<body>
+  <h2>Result:</h2>
+  <p id="output"></p>
+
+  <script>
+    document.getElementById("output").textContent = convertsUnit(unit_type, unit);
+  </script>
+</body>
+</html>
